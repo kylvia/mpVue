@@ -1,8 +1,6 @@
 <template>
   <div>
-      <ul class="tree-list">
-        <tree v-for="item in dlist" v-bind:key="item.id" v-bind:item-data="item"></tree>
-      </ul>
+    <tree v-bind:itemData="dlist"></tree>
 
     <ul class="container log-list">
       <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
