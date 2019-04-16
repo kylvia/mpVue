@@ -1,15 +1,12 @@
 <template>
   <p>
-    <span>{{folder.name}}3{{folder.child}}</span>
-    <tree v-bind:item-data="folder.child" ></tree>
+    <span>{{folder.name}}</span>
+    <tree v-bind:item-data="folder" ></tree>
   </p>
-  <!--<ul class="tree-item">{{children}}-->
-    <!--<tree v-bind:item-data="children"></tree>-->
-  <!--</ul>-->
 </template>
 
 <script>
-  import tree from '@/components/tree'
+  import tree from '@/components/tree-appoint'
   export default {
     name: 'tree-item',
     props: ['folder'],
@@ -17,10 +14,10 @@
       tree
     },
     beforeCreate: function () {
-      this.$options.components.Tree = require('./tree.vue')
+      this.$options.components.Tree = require('./tree-appoint.vue')
     },
     created () {
-      console.log('tree-item --> ', this.folder)
+      // console.log('tree-item --> ', this.folder)
     }
   }
 </script>

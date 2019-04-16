@@ -1,12 +1,6 @@
 <template>
   <div>
     <tree v-bind:itemData="dlist"></tree>
-
-    <ul class="container log-list">
-      <li v-for="(log, index) in logs" :class="{ red: aa }" :key="index" class="log-item">
-        <card :text="(index + 1) + ' . ' + log"></card>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -44,7 +38,6 @@ export default {
     this.logs = logs.map(log => formatTime(new Date(log)))
 
     this.$httpWX.POST(API.getTree, {}).then(res => {
-      console.log(res.jData)
       this.dlist = res.jData
     })
   },
