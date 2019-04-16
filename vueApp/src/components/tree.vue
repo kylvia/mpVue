@@ -12,18 +12,13 @@
     props: ['itemData'],
     data () {
       return {
-        treeData: [],
-        pleft: 'padding-left: 0rpx'
+        treeData: []
       }
     },
     created () {
       this.formatTree(0, 0, this.itemData)
     },
     methods: {
-      countLeft () {
-        let num = this.$refs.item.length
-        this.pleft = `padding-left:${num * 20}rpx`
-      },
       changeToggleOpen (e, index) {
         this.treeData[index].open = true // 当前节点 展开
         this.treeData[index].toggleOpen = !this.treeData[index].toggleOpen // 控制子节点
@@ -43,10 +38,6 @@
             this.formatTree(level + 1, levelId, item.child)
           }
         })
-      },
-      changeActive (d) {
-        this.$emit('change-active', d)
-        this.itemData.toggleOpen = !this.itemData.toggleOpen
       }
     }
   }
