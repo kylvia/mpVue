@@ -28,7 +28,7 @@ export default {
     }
   },
 
-  created () {
+  onLoad () {
     let logs
     if (mpvuePlatform === 'my') {
       logs = mpvue.getStorageSync({key: 'logs'}).data || []
